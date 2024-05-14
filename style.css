@@ -1,0 +1,165 @@
+#debug {
+	display: none;
+}
+
+html {
+	font-size: 24px;
+}
+
+@media screen and (min-width: 800px) {
+	body {
+		width: 800px;
+		margin: 0 auto;
+	}
+}
+
+body {
+	font-family: sans-serif;
+}
+
+.hidden:not(.show) {
+	display: none;
+}
+
+.game {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.scores {
+	width: 100%;
+}
+
+.player {
+	margin: 0.5rem 0;
+	color: #ccc;
+	width: 50%;
+	float: left;
+}
+.player .shade {
+	background: hsla(0,0%,40%,0.5);
+	padding: 0.5rem 1rem;
+} 
+
+.player.current {
+	font-weight: bold;
+	color: white;
+}
+.player.current .shade {
+	background: none;
+}
+
+.scores .score {
+	float: right;
+	width: 3rem;
+	display: inline-block;
+	text-align: right;
+}
+
+.win {
+	font-size: 1.5rem;
+	text-align: center;
+	clear: both;
+	padding: 0.5rem;
+	color: white;
+	background-color: #555;
+}
+.win.show {
+	animation-duration: 0.3s;
+	animation-name: slide-down;
+}
+
+@keyframes slide-down {
+	0% {
+		height: 0;
+		opacity: 0;
+		overflow-y: hidden;
+	}
+	100% {
+		opacity: 1;
+		height: auto;
+	}
+}
+
+.controls {
+	text-align: justify;
+	margin: 0.5rem 0;
+}
+
+.controls button {
+	padding: 1rem 2rem;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	border: none;
+	font-weight: bold;
+	text-transform: lowercase;
+}
+button.place {
+	background: orange;
+	color: white;
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+button.place[disabled] {
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+button.reset {
+	float: right;
+}
+
+.possible-score {
+	margin-left: 0.5rem;
+}
+
+.board {
+	display: block;
+	margin: 0.5rem auto;
+}
+
+.board .background {
+	fill: white;
+}
+
+.grid .square {
+	fill: hsl(200, 50%, 93%);
+	rx: 0.1;
+	ry: 0.1;
+}
+
+.grid .square.occupied {
+	fill: hsl(200,50%,80%);
+}
+
+.line {
+	fill: grey;
+	stroke: hsl(200,50%,93%);
+	stroke-width: 0.05;
+}
+
+.line.overlap {
+	fill: red !important;
+}
+
+.pulse {
+	animation-duration: 0.3s;
+	animation-name: pulse;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes pulse {
+	0% {
+		fill-opacity: 0.6;
+		opacity: 0.6;
+	}
+	100% {
+		fill-opacity: 1;
+		opacity: 1;
+	}
+}
+
+#rules li {
+	margin-bottom: 0.5em;
+}
